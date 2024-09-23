@@ -454,6 +454,8 @@ def derive_toolchain_dir(args):
       return parts[1] + '_' + parts[0][-2:]
     else:
       return parts[1]
+  elif args.os == "linux" and args.toolchain == "linux_gcc_64":
+      return "gcc_64"
 
   return args.toolchain
       
