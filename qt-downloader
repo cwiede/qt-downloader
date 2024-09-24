@@ -24,7 +24,8 @@ ProhibitedTargets = ['root', 'addons', 'conan_profiles']
 OsMap = {
   'macos': 'mac_x64',
   'linux': 'linux_x64',
-  'windows': 'windows_x86'
+  'windows': 'windows_x86',
+  'linux_arm64': 'linux_arm64',
 }
 
 
@@ -456,7 +457,9 @@ def derive_toolchain_dir(args):
       return parts[1]
   elif args.os == "linux" and args.toolchain == "linux_gcc_64":
       return "gcc_64"
-
+  elif args.os == "linux_arm64" and args.toolchain == "linux_gcc_arm64":
+      return "gcc_arm64"
+  
   return args.toolchain
       
 
